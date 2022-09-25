@@ -42,10 +42,10 @@ class MainActivity : AppCompatActivity(), PostAdapter.OnItemClickListener {
     }
 
     override fun onItemClick(article: Article?) {
-        Toast.makeText(this@MainActivity, "test click", Toast.LENGTH_SHORT).show()
         val intent = Intent(this@MainActivity, ArticleActivity::class.java)
         intent.putExtra("title", article?.title)
         intent.putExtra("body", article?.description)
+        intent.putExtra("image", article?.imageUrl)
         startActivity(intent)
     }
 }

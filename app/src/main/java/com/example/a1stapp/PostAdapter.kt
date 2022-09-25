@@ -3,10 +3,11 @@ package com.example.a1stapp
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a1stapp.data.Article
-import com.example.a1stapp.data.PostModel
+import com.squareup.picasso.Picasso
 
 class PostAdapter(private val listener: OnItemClickListener?, var articles: List<Article>? = null): RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
 
@@ -15,12 +16,16 @@ class PostAdapter(private val listener: OnItemClickListener?, var articles: List
     }
 
     class PostViewHolder(itemView: View): RecyclerView.ViewHolder (itemView){
-        private val postTitle: TextView = itemView.findViewById(R.id.postTitle)
-        private val postBody: TextView = itemView.findViewById(R.id.postBody)
+        private val titleView: TextView = itemView.findViewById(R.id.row_article_title)
+        private val imageView: ImageView = itemView.findViewById(R.id.row_article_image)
 
         fun bindView(article: Article, listener: OnItemClickListener?) {
-            postTitle.text = article.title
-            postBody.text = article.description
+            titleView.text = article.title
+
+            Picasso.get().load(article.imageUrl)
+                .placeholder(R.drawable.placeholder)
+                .error(R.drawable.placeholder)
+                .into(imageView)
 
             itemView.setOnClickListener {
                 listener?.onItemClick(article)
@@ -29,7 +34,7 @@ class PostAdapter(private val listener: OnItemClickListener?, var articles: List
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.card_post, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.card_article, parent, false)
         return PostViewHolder(view)
     }
 
