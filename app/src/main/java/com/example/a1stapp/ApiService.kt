@@ -1,5 +1,6 @@
 package com.example.a1stapp
 
+import com.example.a1stapp.data.PostsData
 import retrofit2.Call
 import retrofit2.http.GET
 

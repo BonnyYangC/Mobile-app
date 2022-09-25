@@ -5,25 +5,26 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.example.a1stapp.data.Article
+import com.example.a1stapp.data.PostModel
 
-class PostAdapter(val postModel: List<PostModel>): RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
+class PostAdapter(private val listener: OnItemClickListener?, var articles: List<Article>? = null): RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
 
-    private lateinit var mlistener: onItemClickListener
-
-    interface onItemClickListener {
-        fun onItemClick(position: Int)
-    }
-    fun setOnItemClickListener(listener: onItemClickListener) {
-        mlistener = listener
+    interface OnItemClickListener {
+        fun onItemClick(article: Article?)
     }
 
     class PostViewHolder(itemView: View): RecyclerView.ViewHolder (itemView){
         private val postTitle: TextView = itemView.findViewById(R.id.postTitle)
         private val postBody: TextView = itemView.findViewById(R.id.postBody)
 
-        fun bindView(postModel: PostModel) {
-            postTitle.text = postModel.title
-            postBody.text = postModel.description
+        fun bindView(article: Article, listener: OnItemClickListener?) {
+            postTitle.text = article.title
+            postBody.text = article.description
+
+            itemView.setOnClickListener {
+                listener?.onItemClick(article)
+            }
         }
     }
 
@@ -33,10 +34,12 @@ class PostAdapter(val postModel: List<PostModel>): RecyclerView.Adapter<PostAdap
     }
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
-        return holder.bindView(postModel[position])
+        articles?.get(position)?.let {
+            holder.bindView(it, listener)
+        }
     }
 
     override fun getItemCount(): Int {
-        return postModel.size
+        return articles?.size ?: 0
     }
 }
