@@ -1,6 +1,6 @@
-package com.example.a1stapp
+package com.example.a1stapp.Network
 
-import com.example.a1stapp.data.PostsData
+import com.example.a1stapp.Model.PostsData
 import retrofit2.Call
 import retrofit2.http.GET
 

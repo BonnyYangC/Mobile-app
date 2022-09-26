@@ -1,4 +1,4 @@
-package com.example.a1stapp
+package com.example.a1stapp.Adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.a1stapp.data.Article
+import com.example.a1stapp.R
+import com.example.a1stapp.Model.Article
 import com.squareup.picasso.Picasso
 
 class PostAdapter(private val listener: OnItemClickListener?, var articles: List<Article>? = null): RecyclerView.Adapter<PostAdapter.PostViewHolder>() {

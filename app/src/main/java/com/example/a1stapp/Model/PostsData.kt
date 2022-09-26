@@ -1,6 +1,4 @@
-package com.example.a1stapp.data
-
-import com.example.a1stapp.data.Data
+package com.example.a1stapp.Model
 
 data class PostsData(
     val `data`: Data,

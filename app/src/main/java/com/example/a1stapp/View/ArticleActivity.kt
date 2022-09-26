@@ -1,9 +1,10 @@
-package com.example.a1stapp
+package com.example.a1stapp.View
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
+import com.example.a1stapp.R
 import com.squareup.picasso.Picasso
 
 class ArticleActivity : AppCompatActivity() {
