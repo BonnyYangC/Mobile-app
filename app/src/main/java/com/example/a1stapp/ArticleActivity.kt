@@ -10,6 +10,7 @@ class ArticleActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_article)
+        supportActionBar!!.setDisplayHomeAsUpEnabled(true)
 
         val titleView = findViewById<TextView>(R.id.title_view)
         val bodyView = findViewById<TextView>(R.id.body_view)
