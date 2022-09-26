@@ -1,4 +1,4 @@
-package com.example.a1stapp.Adapter
+package com.example.a1stapp.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,16 +7,16 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.a1stapp.R
-import com.example.a1stapp.Model.Article
+import com.example.a1stapp.data.model.Article
 import com.squareup.picasso.Picasso
 
-class PostAdapter(private val listener: OnItemClickListener?, var articles: List<Article>? = null): RecyclerView.Adapter<PostAdapter.PostViewHolder>() {
+class ArticlesAdapter(private val listener: OnItemClickListener?, var articles: List<Article>? = null): RecyclerView.Adapter<ArticlesAdapter.ArticleViewHolder>() {
 
     interface OnItemClickListener {
         fun onItemClick(article: Article?)
     }
 
-    class PostViewHolder(itemView: View): RecyclerView.ViewHolder (itemView){
+    class ArticleViewHolder(itemView: View): RecyclerView.ViewHolder (itemView){
         private val titleView: TextView = itemView.findViewById(R.id.row_article_title)
         private val imageView: ImageView = itemView.findViewById(R.id.row_article_image)
 
@@ -34,12 +34,12 @@ class PostAdapter(private val listener: OnItemClickListener?, var articles: List
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ArticleViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.card_article, parent, false)
-        return PostViewHolder(view)
+        return ArticleViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: ArticleViewHolder, position: Int) {
         articles?.get(position)?.let {
             holder.bindView(it, listener)
         }

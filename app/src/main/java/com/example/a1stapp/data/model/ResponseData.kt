@@ -1,6 +1,6 @@
-package com.example.a1stapp.Model
+package com.example.a1stapp.data.model
 
-data class PostsData(
+data class ResponseData(
     val `data`: Data,
     val message: String,
     val statusCode: Int

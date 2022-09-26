@@ -1,6 +1,6 @@
-package com.example.a1stapp.Common
+package com.example.a1stapp.data.network.common
 
-import com.example.a1stapp.Network.Retrofit
+import com.example.a1stapp.data.network.Retrofit
 
 object Common {
     private const val BASE_URL = "https://mobilelayer.edsprd01.aws.sbs.com.au/";

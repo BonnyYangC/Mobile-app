@@ -1,4 +1,4 @@
-package com.example.a1stapp.Network
+package com.example.a1stapp.data.network
 
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit

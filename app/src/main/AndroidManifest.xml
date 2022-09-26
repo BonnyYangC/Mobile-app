@@ -15,15 +15,15 @@
         android:theme="@style/Theme.1stApp"
         tools:targetApi="31">
         <activity
-            android:name=".View.ArticleActivity"
+            android:name=".ui.view.ArticleActivity"
             android:exported="false"
-            android:parentActivityName=".View.ArticleListActivity">
+            android:parentActivityName=".ui.view.ArticleListActivity">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".View.ArticleListActivity"
+            android:name=".ui.view.ArticleListActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

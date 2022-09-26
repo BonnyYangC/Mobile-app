@@ -1,4 +1,4 @@
-package com.example.a1stapp.Model
+package com.example.a1stapp.data.model
 
 data class Data(val limit: String,
                 val page: String,

@@ -1,4 +1,4 @@
-package com.example.a1stapp.Model
+package com.example.a1stapp.data.model
 
 data class Article(val uuid: String,
                    val title: String,
